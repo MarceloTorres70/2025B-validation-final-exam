@@ -68,8 +68,7 @@ public class TutorialController {
     Optional<Tutorial> tutorialData = tutorialRepository.findById(id);
 
     if (tutorialData.isPresent()) {
-      Tutorial existingTutorial = tutorialData.get();
-      existingT_tutorial = tutorialData.get();
+      Tutorial _tutorial = tutorialData.get();
       _tutorial.setTitle(tutorial.getTitle());
       _tutorial.setDescription(tutorial.getDescription());
       _tutorial.setPublished(tutorial.isPublished());
@@ -77,6 +76,7 @@ public class TutorialController {
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+  }
 
   @DeleteMapping("/tutorials/{id}")
   public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") long id) {
